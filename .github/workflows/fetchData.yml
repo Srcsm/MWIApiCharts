@@ -34,8 +34,8 @@ jobs:
         run: node ./src/data/readSQLite.cjs
       - name: Commit changes
         run: |
-          git config --global user.email "prozhong@msn.cn"
-          git config --global user.name "prozhong"
+          git config --global user.email "jayms@duck.com"
+          git config --global user.name "srcsm"
           git add ./src/data/data.json
           git commit -m "Auto commit at $(date)"
           git push
