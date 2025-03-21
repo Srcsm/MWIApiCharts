@@ -4,7 +4,7 @@ import "./App.css";
 import { Line } from "@ant-design/plots";
 import { Select } from "antd";
 import _data from "./data/data.json";
-import _itemsZHMap from "./data/itemNameToZH.json";
+// import _itemsZHMap from "./data/itemNameToZH.json";
 
 let naviLang = navigator.language || navigator.userLanguage;
 let iszhCN = naviLang === "zh-CN";
@@ -15,7 +15,7 @@ if (iszhCN) {
 let curOptions = [];
 let i = 1;
 for (const key in _data) {
-  let option = { value: i, label: _itemsZHMap[key] || key, key: key };
+  let option = { value: i, label: key, key: key }; // Use the original key
   curOptions.push(option);
   i++;
 }
@@ -125,8 +125,7 @@ const DemoLine = () => {
         placeholder={uiText.serch}
         optionFilterProp="children"
         filterOption={(input, option) =>
-          (option?.key ?? "").toLowerCase().includes(input.toLowerCase()) || 
-          (option?.label ?? "").toLowerCase().includes(input.toLowerCase())
+          (option?.key ?? "").toLowerCase().includes(input.toLowerCase())
         }
         filterSort={(optionA, optionB) =>
           (optionA?.label ?? "")
@@ -143,7 +142,7 @@ const DemoLine = () => {
       {graph}
       <br></br>
       <br></br>
-      <br></br>数据更新时间 : {showDataStr.toLocaleString()}
+      <br></br>Last update : {showDataStr.toLocaleString()}
     </div>
   );
 };
