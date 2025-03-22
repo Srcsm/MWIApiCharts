@@ -135,7 +135,7 @@ const DemoLine = () => {
         options={curOptions}
         onChange={
           (value, label) => {
-            setINameSel(label.label);
+            setINameSel(option.key);
           }
         }
       />
