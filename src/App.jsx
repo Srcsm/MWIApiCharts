@@ -15,7 +15,7 @@ if (iszhCN) {
 let curOptions = [];
 let i = 1;
 for (const key in _data) {
-  let option = { value: i, label: key }; // Use the original key
+  let option = { value: i, label: key, key: key }; // Use the original key
   curOptions.push(option);
   i++;
 }
@@ -134,7 +134,7 @@ const DemoLine = () => {
         }
         options={curOptions}
         onChange={
-          (value, label) => {
+          (value, option) => {
             setINameSel(option.key);
           }
         }
